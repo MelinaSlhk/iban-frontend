@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+@import "wcs-core/dist/wcs/wcs.css";
+@import "wcs-core/design-tokens/dist/sncf-holding.css";
+
+/* --- Polices Avenir --- */
+// @font-face {
+//   font-family: Avenir;
+//   src: url("assets/fonts/avenir-lighter.woff") format("woff");
+//   font-weight: 100;
+// }
+// @font-face {
+//   font-family: Avenir;
+//   src: url("assets/fonts/avenir-book.woff") format("woff");
+//   font-weight: 300;
+// }
+// @font-face {
+//   font-family: Avenir;
+//   src: url("assets/fonts/avenir-roman.woff") format("woff");
+//   font-weight: 400;
+// }
+// @font-face {
+//   font-family: Avenir;
+//   src: url("assets/fonts/avenir-medium.woff") format("woff");
+//   font-weight: 500;
+// }
+// @font-face {
+//   font-family: Avenir;
+//   src: url("assets/fonts/avenir-heavy.woff") format("woff");
+//   font-weight: 800;
+// }
+// @font-face {
+//   font-family: Avenir;
+//   src: url("assets/fonts/avenir-black.woff") format("woff");
+//   font-weight: 900;
+// }
+
+// /* --- Icônes SNCF --- */
+// @font-face {
+//   font-family: "icons";
+//   src: url("assets/fonts/icons/icons.woff2") format("woff2"),
+//        url("assets/fonts/icons/icons.woff") format("woff");
+// }
+
+/* --- Icônes Material (optionnel) --- */
+// @font-face {
+//   font-family: 'Material Icons';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+// }

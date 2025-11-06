@@ -27,10 +27,17 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/wcs-core/dist/wcs/wcs.css",
+              "node_modules/wcs-core/design-tokens/dist/sncf-holding.css"
             ]
           },
           "configurations": {

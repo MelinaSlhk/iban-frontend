@@ -1,0 +1,79 @@
+<wcs-header>
+  <img slot="logo" alt="SNCF" src="/assets/logo.svg">
+  <h1 slot="title">Vérifiez votre IBAN</h1>
+</wcs-header>
+
+<style>
+  /* Conteneur principal sous le header */
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 9rem;        
+  }
+
+  /* Ligne contenant le label, l’input et le bouton */
+  .iban-row {
+    display: flex;
+    align-items: center;       /* aligne verticalement tous les éléments */
+    gap: 25px;                 /* espace entre les éléments */
+    flex-wrap: wrap;
+  }
+
+  wcs-form-field {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  label {
+    margin-right: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;       /* centre le texte verticalement par rapport à l’input */
+  }
+
+  wcs-input {
+    width: 350px;
+    max-width: 90%;
+  }
+
+  wcs-button {
+    height: 48px;              /* même hauteur visuelle que le champ */
+    position: relative;
+    top: 3px;                  /* léger ajustement pour un alignement parfait */
+  }
+
+  /* Message d'erreur / succès */
+  .iban-message {
+    width: 100%;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .iban-message.error { color: #c62828; }
+  .iban-message.success { color: #2e7d32; }
+</style>
+
+<div class="page-container">
+  <div class="iban-row">
+    <wcs-form-field [isError]="error">
+      <label>Entrez votre IBAN :</label>
+      <wcs-input
+        type="text"
+        [value]="iban"
+        [maxlength]="maxLength"
+        (wcsInput)="onIbanChange($event)"
+        placeholder="FR7612345678901234567890123"
+        required>
+      </wcs-input>
+    </wcs-form-field>
+
+    <!-- Message d'erreur / succès -->
+    <div *ngIf="message" class="iban-message" [class.error]="error" [class.success]="!error">
+      {{ message }}
+    </div>
+
+    <wcs-button (click)="verifyIban()" mode="stroked">Vérifier</wcs-button>
+  </div>
+</div>
