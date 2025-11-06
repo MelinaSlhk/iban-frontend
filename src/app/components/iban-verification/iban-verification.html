@@ -7,16 +7,17 @@
   /* Conteneur principal sous le header */
   .page-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 9rem;        
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 9rem;
   }
 
   /* Ligne contenant le label, l’input et le bouton */
   .iban-row {
     display: flex;
-    align-items: center;       /* aligne verticalement tous les éléments */
-    gap: 25px;                 /* espace entre les éléments */
+    align-items: center;
+    gap: 25px;
     flex-wrap: wrap;
   }
 
@@ -30,7 +31,7 @@
     margin-right: 8px;
     font-size: 16px;
     display: flex;
-    align-items: center;       /* centre le texte verticalement par rapport à l’input */
+    align-items: center;
   }
 
   wcs-input {
@@ -39,16 +40,23 @@
   }
 
   wcs-button {
-    height: 48px;              /* même hauteur visuelle que le champ */
+    height: 48px;
     position: relative;
-    top: 3px;                  /* léger ajustement pour un alignement parfait */
+    top: 3px;
   }
 
-  /* Message d'erreur / succès */
+  /* Bloc message global réservé sous le bloc */
+  .iban-message-container {
+    height: 24px; /* ✅ réserve de l’espace fixe */
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
   .iban-message {
-    width: 100%;
-    margin-top: 8px;
     font-size: 14px;
+    text-align: center;
+    transition: opacity 0.2s ease-in-out;
   }
 
   .iban-message.error { color: #c62828; }
@@ -56,6 +64,7 @@
 </style>
 
 <div class="page-container">
+  <!-- Bloc input + bouton -->
   <div class="iban-row">
     <wcs-form-field [isError]="error">
       <label>Entrez votre IBAN :</label>
@@ -69,11 +78,13 @@
       </wcs-input>
     </wcs-form-field>
 
-    <!-- Message d'erreur / succès -->
+    <wcs-button (click)="verifyIban()" mode="stroked">Vérifier</wcs-button>
+  </div>
+
+  <!-- ✅ Message affiché sous le bloc, sans décaler l’input ni le bouton -->
+  <div class="iban-message-container">
     <div *ngIf="message" class="iban-message" [class.error]="error" [class.success]="!error">
       {{ message }}
     </div>
-
-    <wcs-button (click)="verifyIban()" mode="stroked">Vérifier</wcs-button>
   </div>
 </div>
